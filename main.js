@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftHome = document.getElementById("leftHome");
   const leftLogin = document.getElementById("leftLogin");
   const leftRegister = document.getElementById("leftRegister");
+  const platformStats = document.getElementById("platformStats");
   const registerBtn = document.querySelector(".main-nav .btn:last-child");
   if (loginBtn && leftHome && leftLogin && leftRegister && registerBtn) {
     // Hide login/register by default
@@ -37,8 +38,10 @@ document.addEventListener("DOMContentLoaded", function () {
             leftLogin.style.display = "none";
             leftHome.style.display = "block";
             leftHome.classList.remove("fade-out");
+            platformStats.classList.remove("fade-out");
             setTimeout(function () {
               leftHome.style.opacity = 1;
+              platformStats.style.opacity = 1;
             }, 10);
           }, 350);
         } else if (leftRegister.style.display === "block") {
@@ -48,8 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
             leftRegister.style.display = "none";
             leftHome.style.display = "block";
             leftHome.classList.remove("fade-out");
+            platformStats.classList.remove("fade-out");
             setTimeout(function () {
               leftHome.style.opacity = 1;
+              platformStats.style.opacity = 1;
             }, 10);
           }, 350);
         }
@@ -62,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (leftRegister.style.display === "block") {
         leftRegister.classList.remove("fade-in");
         leftRegister.classList.add("fade-out");
+        platformStats.classList.add("fade-out");
         setTimeout(function () {
           leftRegister.style.display = "none";
           leftLogin.style.display = "block";
@@ -72,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 350);
       } else {
         leftHome.classList.add("fade-out");
+        platformStats.classList.add("fade-out");
         setTimeout(function () {
           leftHome.style.display = "none";
           leftLogin.style.display = "block";
@@ -89,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (leftLogin.style.display === "block") {
         leftLogin.classList.remove("fade-in");
         leftLogin.classList.add("fade-out");
+        platformStats.classList.add("fade-out");
         setTimeout(function () {
           leftLogin.style.display = "none";
           leftRegister.style.display = "block";
@@ -99,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 350);
       } else {
         leftHome.classList.add("fade-out");
+        platformStats.classList.add("fade-out");
         setTimeout(function () {
           leftHome.style.display = "none";
           leftRegister.style.display = "block";
