@@ -16,48 +16,38 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftLogin = document.getElementById("leftLogin");
   const leftRegister = document.getElementById("leftRegister");
   const platformStats = document.getElementById("platformStats");
+  const rightSocialLogin = document.querySelector('.right-social-login');
+  const socialLogins = document.querySelectorAll(".social-login");
   const registerBtn = document.querySelector(".main-nav .btn:last-child");
   if (loginBtn && leftHome && leftLogin && leftRegister && registerBtn) {
-    // Hide login/register by default
+    // Hide login/register and social buttons by default
     leftLogin.style.display = "none";
     leftLogin.style.opacity = 0;
     leftRegister.style.display = "none";
     leftRegister.style.opacity = 0;
     leftHome.style.opacity = 1;
+    rightSocialLogin.style.display = "none";
+    rightSocialLogin.style.opacity = 0;
 
     // Home button logic
     var homeBtn = document.querySelector(".main-nav .btn:first-child");
     if (homeBtn) {
       homeBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        // Fade out login/register, fade in home
-        if (leftLogin.style.display === "block") {
-          leftLogin.classList.remove("fade-in");
-          leftLogin.classList.add("fade-out");
-          setTimeout(function () {
-            leftLogin.style.display = "none";
-            leftHome.style.display = "block";
+        leftLogin.classList.add("fade-out");
+        leftRegister.classList.add("fade-out");
+        setTimeout(() => {
+          leftLogin.style.display = "none";
+          leftRegister.style.display = "none";
+          leftHome.style.display = "block";
+          platformStats.style.display = "block";
+          rightSocialLogin.style.display = "none";
+          rightSocialLogin.style.opacity = "0";
+          setTimeout(() => {
             leftHome.classList.remove("fade-out");
             platformStats.classList.remove("fade-out");
-            setTimeout(function () {
-              leftHome.style.opacity = 1;
-              platformStats.style.opacity = 1;
-            }, 10);
-          }, 350);
-        } else if (leftRegister.style.display === "block") {
-          leftRegister.classList.remove("fade-in");
-          leftRegister.classList.add("fade-out");
-          setTimeout(function () {
-            leftRegister.style.display = "none";
-            leftHome.style.display = "block";
-            leftHome.classList.remove("fade-out");
-            platformStats.classList.remove("fade-out");
-            setTimeout(function () {
-              leftHome.style.opacity = 1;
-              platformStats.style.opacity = 1;
-            }, 10);
-          }, 350);
-        }
+          }, 50);
+        }, 500);
       });
     }
 
@@ -68,9 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
         leftRegister.classList.remove("fade-in");
         leftRegister.classList.add("fade-out");
         platformStats.classList.add("fade-out");
+        rightSocialLogin.classList.add("fade-out");
         setTimeout(function () {
           leftRegister.style.display = "none";
           leftLogin.style.display = "block";
+          rightSocialLogin.style.display = "none";
           setTimeout(function () {
             leftLogin.classList.add("fade-in");
             leftLogin.style.opacity = 1;
@@ -79,9 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         leftHome.classList.add("fade-out");
         platformStats.classList.add("fade-out");
+        rightSocialLogin.classList.add("fade-out");
         setTimeout(function () {
           leftHome.style.display = "none";
           leftLogin.style.display = "block";
+          rightSocialLogin.style.display = "none";
           setTimeout(function () {
             leftLogin.classList.add("fade-in");
             leftLogin.style.opacity = 1;
@@ -97,9 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
         leftLogin.classList.remove("fade-in");
         leftLogin.classList.add("fade-out");
         platformStats.classList.add("fade-out");
+        rightSocialLogin.classList.add("fade-out");
         setTimeout(function () {
           leftLogin.style.display = "none";
           leftRegister.style.display = "block";
+          rightSocialLogin.style.display = "none";
           setTimeout(function () {
             leftRegister.classList.add("fade-in");
             leftRegister.style.opacity = 1;
@@ -108,9 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         leftHome.classList.add("fade-out");
         platformStats.classList.add("fade-out");
+        rightSocialLogin.classList.add("fade-out");
         setTimeout(function () {
           leftHome.style.display = "none";
           leftRegister.style.display = "block";
+          rightSocialLogin.style.display = "none";
           setTimeout(function () {
             leftRegister.classList.add("fade-in");
             leftRegister.style.opacity = 1;
