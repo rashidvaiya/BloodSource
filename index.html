@@ -79,27 +79,62 @@
     <main>
       <div class="main-content">
         <section class="main-left">
-          <iframe 
-            src="https://lottie.host/embed/12f8dccf-98a2-414f-9d4f-8251edad5818/y859QLsMYp.lottie" 
-            class="lottie-hero"
-            allowfullscreen>
-          </iframe>
-          <h2>Welcome to BloodSource</h2>
-          <p>Your trusted platform for blood donation and requests.</p>
+          <div class="left-home" id="leftHome">
+            <iframe 
+              src="https://lottie.host/embed/12f8dccf-98a2-414f-9d4f-8251edad5818/y859QLsMYp.lottie" 
+              class="lottie-hero"
+              allowfullscreen>
+            </iframe>
+            <h2>Welcome to BloodSource</h2>
+            <p>Your trusted platform for blood donation and requests.</p>
+          </div>
+          <div class="left-login" id="leftLogin">
+            <div class="login-content">
+              <h2>Log In</h2>
+              <form>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required autocomplete="username" />
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" required autocomplete="current-password" />
+                <button type="submit" class="btn">Log In</button>
+              </form>
+            </div>
+          </div>
+          <div class="left-register" id="leftRegister">
+            <div class="register-content">
+              <h2>Register</h2>
+              <form>
+                <label for="register-name">Name</label>
+                <input type="text" id="register-name" name="name" required autocomplete="name" />
+                <label for="register-email">Email</label>
+                <input type="email" id="register-email" name="email" required autocomplete="username" />
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" name="password" required autocomplete="new-password" />
+                <button type="submit" class="btn">Register</button>
+              </form>
+            </div>
+          </div>
         </section>
         <section class="main-right">
           <h2>Why Donate Blood?</h2>
           <p>Donating blood saves lives and helps those in urgent need. Join our community of heroes and make a difference today.</p>
           <nav class="main-nav">
             <a href="#" class="btn">Home</a>
-            <a href="#" class="btn">Log In</a>
+            <a href="#" class="btn" id="loginBtn">Log In</a>
             <a href="#" class="btn">Register</a>
           </nav>
         </section>
       </div>
     </main>
     <footer>
-      <p>&copy; 2025 BloodSource. All rights reserved.</p>
+      <div class="footer-row">
+        <span>&copy; 2025 BloodSource. All rights reserved.</span>
+        <span class="footer-links">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <span class="footer-sep">|</span>
+          <a href="#" class="footer-link">Terms and Conditions</a>
+        </span>
+      </div>
     </footer>
 </main>
 <script src="main.js"></script>
