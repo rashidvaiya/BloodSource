@@ -16,9 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftLogin = document.getElementById("leftLogin");
   const leftRegister = document.getElementById("leftRegister");
   const platformStats = document.getElementById("platformStats");
-  const rightSocialLogin = document.querySelector('.right-social-login');
-  const socialLogins = document.querySelectorAll(".social-login");
-  const registerBtn = document.querySelector(".main-nav .btn:last-child");
+  const rightSocialLogin = document.getElementById("rightSocialLogin");
+  const rightSocialTitle = document.getElementById("rightSocialTitle");
+  const registerBtn = document.getElementById("registerBtn");
+  const homeBtn = document.getElementById("homeBtn");
   if (loginBtn && leftHome && leftLogin && leftRegister && registerBtn) {
     // Hide login/register and social buttons by default
     leftLogin.style.display = "none";
@@ -30,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
     rightSocialLogin.style.opacity = 0;
 
     // Home button logic
-    var homeBtn = document.querySelector(".main-nav .btn:first-child");
     if (homeBtn) {
       homeBtn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -62,10 +62,14 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
           leftRegister.style.display = "none";
           leftLogin.style.display = "block";
-          rightSocialLogin.style.display = "none";
+          rightSocialLogin.style.display = "block";
+          rightSocialLogin.style.opacity = "1";
+          if (rightSocialTitle) rightSocialTitle.textContent = "Login";
           setTimeout(function () {
             leftLogin.classList.add("fade-in");
             leftLogin.style.opacity = 1;
+            rightSocialLogin.classList.remove("fade-out");
+            rightSocialLogin.classList.add("fade-in");
           }, 10);
         }, 350);
       } else {
@@ -75,10 +79,14 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
           leftHome.style.display = "none";
           leftLogin.style.display = "block";
-          rightSocialLogin.style.display = "none";
+          rightSocialLogin.style.display = "block";
+          rightSocialLogin.style.opacity = "1";
+          if (rightSocialTitle) rightSocialTitle.textContent = "Login";
           setTimeout(function () {
             leftLogin.classList.add("fade-in");
             leftLogin.style.opacity = 1;
+            rightSocialLogin.classList.remove("fade-out");
+            rightSocialLogin.classList.add("fade-in");
           }, 10);
         }, 350);
       }
@@ -95,10 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
           leftLogin.style.display = "none";
           leftRegister.style.display = "block";
-          rightSocialLogin.style.display = "none";
+          rightSocialLogin.style.display = "block";
+          rightSocialLogin.style.opacity = "1";
+          if (rightSocialTitle) rightSocialTitle.textContent = "Register";
           setTimeout(function () {
             leftRegister.classList.add("fade-in");
             leftRegister.style.opacity = 1;
+            rightSocialLogin.classList.remove("fade-out");
+            rightSocialLogin.classList.add("fade-in");
           }, 10);
         }, 350);
       } else {
@@ -108,10 +120,14 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
           leftHome.style.display = "none";
           leftRegister.style.display = "block";
-          rightSocialLogin.style.display = "none";
+          rightSocialLogin.style.display = "block";
+          rightSocialLogin.style.opacity = "1";
+          if (rightSocialTitle) rightSocialTitle.textContent = "Register";
           setTimeout(function () {
             leftRegister.classList.add("fade-in");
             leftRegister.style.opacity = 1;
+            rightSocialLogin.classList.remove("fade-out");
+            rightSocialLogin.classList.add("fade-in");
           }, 10);
         }, 350);
       }
