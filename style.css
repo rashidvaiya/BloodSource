@@ -1,3 +1,105 @@
+@media (max-width: 400px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+  .main-content {
+    gap: 0.1rem;
+    padding: 0;
+    min-width: 0;
+  }
+  .main-left,
+  .main-right {
+    padding: 0.4rem 0.05rem 0.3rem 0.05rem;
+    border-radius: 0.5rem;
+    min-width: 0;
+  }
+  .lottie-hero {
+    width: 90px;
+    height: 60px;
+    max-width: 96vw;
+    max-height: 30vw;
+  }
+  .platform-title,
+  .platform-stats h3 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem;
+  }
+  .stat-card {
+    padding: 0.4rem;
+    font-size: 0.75rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .testimonial-card {
+    min-width: 0;
+    padding: 0.4rem 0.05rem 0.4rem 0.05rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  .testimonial-avatar {
+    width: 28px;
+    height: 28px;
+  }
+  .testimonial-content {
+    align-items: center;
+    text-align: center;
+  }
+  .testimonial-name {
+    font-size: 0.9rem;
+  }
+  .testimonial-stars {
+    font-size: 0.8rem;
+  }
+  .testimonial-text {
+    font-size: 0.85rem;
+    max-width: 98vw;
+    padding: 0 0.1rem;
+  }
+  .main-nav {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .main-nav .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+  }
+  .register-content {
+    padding: 0.5rem 0.1rem 0.4rem 0.1rem;
+    min-width: 0;
+    width: 99vw;
+  }
+  .register-content h2 {
+    font-size: 0.9rem;
+  }
+  .register-content input[type="text"],
+  .register-content input[type="email"],
+  .register-content input[type="password"] {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.4rem;
+  }
+  .register-content .btn[type="submit"] {
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+  }
+  header {
+    padding: 0.7rem 0.2rem;
+    gap: 0.3rem;
+  }
+  header h1 {
+    font-size: 0.8rem;
+  }
+  .footer-row {
+    font-size: 0.8rem;
+    gap: 0.1em;
+  }
+  .footer-link {
+    font-size: 0.8rem;
+  }
+}
 /* Ensure testimonial .platform-title matches platform statistics title exactly */
 .testimonial-header .platform-title {
   color: var(--color-accent);
@@ -683,19 +785,42 @@ body::-webkit-scrollbar,
   color: #fff;
   box-shadow: var(--shadow-elevation-2);
 }
-/* Always keep nav buttons in a row, even on mobile */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .main-nav {
-    flex-direction: row;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+    align-items: stretch;
   }
   .main-nav .btn {
-    width: auto;
+    width: 100%;
     min-width: 0;
-    display: inline-block;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    font-size: 1rem;
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.05rem;
+    border-radius: 0.7rem;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-nav {
+    gap: 0.3rem;
+  }
+  .main-nav .btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-nav {
+    gap: 0.1rem;
+  }
+  .main-nav .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
   }
 }
 /* Two Section Layout for Body */
@@ -732,26 +857,156 @@ body::-webkit-scrollbar,
   justify-content: flex-start;
   align-items: flex-start;
 }
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .main-content {
     flex-direction: column;
     gap: 1.5rem;
     align-items: stretch;
+    max-width: 98vw;
+    padding: 0 0.5rem;
   }
   .main-left,
   .main-right {
     max-width: 100%;
+    padding: 2rem 1rem 1.5rem 1rem;
   }
 }
-@media (max-width: 600px) {
+
+@media (max-width: 900px) {
   .main-content {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: stretch;
+    max-width: 100vw;
+    padding: 0 0.2rem;
+  }
+  .main-left,
+  .main-right {
+    max-width: 100%;
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+  }
+  .lottie-hero {
+    width: 320px;
+    height: 220px;
+    max-width: 100vw;
+    max-height: 60vw;
+  }
+  .platform-stats {
+    margin-top: 1.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-content {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0 0.1rem;
+  }
+  .main-left,
+  .main-right {
+    padding: 1rem 0.2rem 0.7rem 0.2rem;
+    border-radius: 1rem;
+  }
+  .lottie-hero {
+    width: 220px;
+    height: 160px;
+    max-width: 98vw;
+    max-height: 50vw;
+  }
+  .platform-title,
+  .platform-stats h3 {
+    font-size: 1.2rem !important;
+  }
+  .stat-card {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+  .testimonial-card {
+    min-width: 0;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .testimonial-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  .testimonial-content {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-content {
+    gap: 0.3rem;
     padding: 0;
   }
-  .main-left {
-    padding: 1.5rem 0.5rem 1rem 0.5rem;
-  }
+  .main-left,
   .main-right {
-    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    padding: 0.7rem 0.1rem 0.5rem 0.1rem;
+    border-radius: 0.7rem;
+  }
+  .lottie-hero {
+    width: 140px;
+    height: 90px;
+    max-width: 98vw;
+    max-height: 40vw;
+  }
+  .platform-title,
+  .platform-stats h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.7rem;
+  }
+  .stat-card {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+  .testimonial-card {
+    min-width: 0;
+    padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  .testimonial-content {
+    align-items: center;
+    text-align: center;
+  }
+  .main-nav {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .main-nav .btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
+  }
+  .register-content {
+    padding: 1rem 0.3rem 0.7rem 0.3rem;
+    min-width: 0;
+    width: 98vw;
+  }
+  .register-content h2 {
+    font-size: 1.1rem;
+  }
+  .register-content input[type="text"],
+  .register-content input[type="email"],
+  .register-content input[type="password"] {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .register-content .btn[type="submit"] {
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
   }
 }
 /* Lottie Animation Responsive Sizing */
