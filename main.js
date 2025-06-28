@@ -1,5 +1,33 @@
 // Toggle dark mode on body when switch is toggled
 document.addEventListener("DOMContentLoaded", function () {
+  // Enforce lowercase for username input
+  const loginUsernameInput = document.getElementById("login-username");
+  if (loginUsernameInput) {
+    loginUsernameInput.addEventListener("input", function () {
+      this.value = this.value.toLowerCase();
+    });
+  }
+  // Password show/hide toggle for login form
+  const loginPasswordInput = document.getElementById("login-password");
+  const loginPasswordToggle = document.getElementById("loginPasswordToggle");
+  if (loginPasswordInput && loginPasswordToggle) {
+    loginPasswordToggle.addEventListener("click", function () {
+      const icon = loginPasswordToggle.querySelector("i");
+      if (loginPasswordInput.type === "password") {
+        loginPasswordInput.type = "text";
+        if (icon) {
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        }
+      } else {
+        loginPasswordInput.type = "password";
+        if (icon) {
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      }
+    });
+  }
   const toggle = document.getElementById("input");
   const root = document.documentElement;
   toggle.addEventListener("change", function () {
