@@ -49,116 +49,43 @@ document.addEventListener("DOMContentLoaded", function () {
   const registerBtn = document.getElementById("registerBtn");
   const homeBtn = document.getElementById("homeBtn");
   if (loginBtn && leftHome && leftLogin && leftRegister && registerBtn) {
-    // Hide login/register and social buttons by default
+    // Initial state: show home, hide login/register/social, show platform stats
+    leftHome.style.display = "block";
     leftLogin.style.display = "none";
-    leftLogin.style.opacity = 0;
     leftRegister.style.display = "none";
-    leftRegister.style.opacity = 0;
-    leftHome.style.opacity = 1;
     rightSocialLogin.style.display = "none";
-    rightSocialLogin.style.opacity = 0;
+    platformStats.style.display = "block";
 
     // Home button logic
     if (homeBtn) {
       homeBtn.addEventListener("click", function (e) {
         e.preventDefault();
-        leftLogin.classList.add("fade-out");
-        leftRegister.classList.add("fade-out");
-        setTimeout(() => {
-          leftLogin.style.display = "none";
-          leftRegister.style.display = "none";
-          leftHome.style.display = "block";
-          platformStats.style.display = "block";
-          rightSocialLogin.style.display = "none";
-          rightSocialLogin.style.opacity = "0";
-          setTimeout(() => {
-            leftHome.classList.remove("fade-out");
-            platformStats.classList.remove("fade-out");
-          }, 50);
-        }, 500);
+        leftHome.style.display = "block";
+        leftLogin.style.display = "none";
+        leftRegister.style.display = "none";
+        rightSocialLogin.style.display = "none";
+        platformStats.style.display = "block";
       });
     }
 
     loginBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      // Fade out home/register, fade in login
-      if (leftRegister.style.display === "block") {
-        leftRegister.classList.remove("fade-in");
-        leftRegister.classList.add("fade-out");
-        platformStats.classList.add("fade-out");
-        rightSocialLogin.classList.add("fade-out");
-        setTimeout(function () {
-          leftRegister.style.display = "none";
-          leftLogin.style.display = "block";
-          rightSocialLogin.style.display = "block";
-          rightSocialLogin.style.opacity = "1";
-          if (rightSocialTitle) rightSocialTitle.textContent = "Login";
-          setTimeout(function () {
-            leftLogin.classList.add("fade-in");
-            leftLogin.style.opacity = 1;
-            rightSocialLogin.classList.remove("fade-out");
-            rightSocialLogin.classList.add("fade-in");
-          }, 10);
-        }, 350);
-      } else {
-        leftHome.classList.add("fade-out");
-        platformStats.classList.add("fade-out");
-        rightSocialLogin.classList.add("fade-out");
-        setTimeout(function () {
-          leftHome.style.display = "none";
-          leftLogin.style.display = "block";
-          rightSocialLogin.style.display = "block";
-          rightSocialLogin.style.opacity = "1";
-          if (rightSocialTitle) rightSocialTitle.textContent = "Login";
-          setTimeout(function () {
-            leftLogin.classList.add("fade-in");
-            leftLogin.style.opacity = 1;
-            rightSocialLogin.classList.remove("fade-out");
-            rightSocialLogin.classList.add("fade-in");
-          }, 10);
-        }, 350);
-      }
+      leftHome.style.display = "none";
+      leftLogin.style.display = "block";
+      leftRegister.style.display = "none";
+      rightSocialLogin.style.display = "block";
+      platformStats.style.display = "none";
+      if (rightSocialTitle) rightSocialTitle.textContent = "Login";
     });
 
     registerBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      // Fade out home/login, fade in register
-      if (leftLogin.style.display === "block") {
-        leftLogin.classList.remove("fade-in");
-        leftLogin.classList.add("fade-out");
-        platformStats.classList.add("fade-out");
-        rightSocialLogin.classList.add("fade-out");
-        setTimeout(function () {
-          leftLogin.style.display = "none";
-          leftRegister.style.display = "block";
-          rightSocialLogin.style.display = "block";
-          rightSocialLogin.style.opacity = "1";
-          if (rightSocialTitle) rightSocialTitle.textContent = "Register";
-          setTimeout(function () {
-            leftRegister.classList.add("fade-in");
-            leftRegister.style.opacity = 1;
-            rightSocialLogin.classList.remove("fade-out");
-            rightSocialLogin.classList.add("fade-in");
-          }, 10);
-        }, 350);
-      } else {
-        leftHome.classList.add("fade-out");
-        platformStats.classList.add("fade-out");
-        rightSocialLogin.classList.add("fade-out");
-        setTimeout(function () {
-          leftHome.style.display = "none";
-          leftRegister.style.display = "block";
-          rightSocialLogin.style.display = "block";
-          rightSocialLogin.style.opacity = "1";
-          if (rightSocialTitle) rightSocialTitle.textContent = "Register";
-          setTimeout(function () {
-            leftRegister.classList.add("fade-in");
-            leftRegister.style.opacity = 1;
-            rightSocialLogin.classList.remove("fade-out");
-            rightSocialLogin.classList.add("fade-in");
-          }, 10);
-        }, 350);
-      }
+      leftHome.style.display = "none";
+      leftLogin.style.display = "none";
+      leftRegister.style.display = "block";
+      rightSocialLogin.style.display = "block";
+      platformStats.style.display = "none";
+      if (rightSocialTitle) rightSocialTitle.textContent = "Register";
     });
 
     // Prevent form submit (demo only)

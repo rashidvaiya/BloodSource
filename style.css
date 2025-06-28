@@ -529,8 +529,6 @@ h2 {
 .left-register {
   width: 100%;
   transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  display: none;
-  opacity: 0;
 }
 .register-content {
   background: var(--color-surface);
@@ -606,8 +604,7 @@ h2 {
   opacity: 1;
 }
 .left-login {
-  display: none;
-  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .fade-out {
   opacity: 0 !important;
