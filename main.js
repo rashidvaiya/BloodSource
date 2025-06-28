@@ -49,43 +49,49 @@ document.addEventListener("DOMContentLoaded", function () {
   const registerBtn = document.getElementById("registerBtn");
   const homeBtn = document.getElementById("homeBtn");
   if (loginBtn && leftHome && leftLogin && leftRegister && registerBtn) {
-    // Initial state: show home, hide login/register/social, show platform stats
-    leftHome.style.display = "block";
-    leftLogin.style.display = "none";
-    leftRegister.style.display = "none";
-    rightSocialLogin.style.display = "none";
-    platformStats.style.display = "block";
-
-    // Home button logic
-    if (homeBtn) {
-      homeBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        leftHome.style.display = "block";
-        leftLogin.style.display = "none";
-        leftRegister.style.display = "none";
-        rightSocialLogin.style.display = "none";
-        platformStats.style.display = "block";
-      });
+    const parent = document.querySelector(".parent");
+    // Initial state: Home
+    function setHomeMode() {
+      leftHome.style.display = "block";
+      leftLogin.style.display = "none";
+      leftRegister.style.display = "none";
+      rightSocialLogin.style.display = "none";
+      platformStats.style.display = "block";
+      if (parent) parent.classList.add("home-login-mode");
     }
-
-    loginBtn.addEventListener("click", function (e) {
-      e.preventDefault();
+    function setLoginMode() {
       leftHome.style.display = "none";
       leftLogin.style.display = "block";
       leftRegister.style.display = "none";
       rightSocialLogin.style.display = "block";
       platformStats.style.display = "none";
       if (rightSocialTitle) rightSocialTitle.textContent = "Login";
-    });
-
-    registerBtn.addEventListener("click", function (e) {
-      e.preventDefault();
+      if (parent) parent.classList.add("home-login-mode");
+    }
+    function setRegisterMode() {
       leftHome.style.display = "none";
       leftLogin.style.display = "none";
       leftRegister.style.display = "block";
       rightSocialLogin.style.display = "block";
       platformStats.style.display = "none";
       if (rightSocialTitle) rightSocialTitle.textContent = "Register";
+      if (parent) parent.classList.remove("home-login-mode");
+    }
+    // Initial
+    setHomeMode();
+    if (homeBtn) {
+      homeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        setHomeMode();
+      });
+    }
+    loginBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      setLoginMode();
+    });
+    registerBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      setRegisterMode();
     });
 
     // Prevent form submit (demo only)
