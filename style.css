@@ -1,5 +1,7 @@
 .main-left {
   justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* Main grid layout for the body */
 .parent {
