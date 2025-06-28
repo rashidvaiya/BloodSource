@@ -99,3 +99,118 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+// Enable form fields after invitation code is verified (from registration stepper)
+const verifyBtn = document.getElementById("verify-invite");
+const inviteInput = document.getElementById("invitation-code");
+const formFields = [
+  "full-name",
+  "username",
+  "email",
+  "phone",
+  "division",
+  "district",
+  "occupation",
+  "at",
+].map((id) => document.getElementById(id));
+// The next step button may not have id nextStepBtn, so select by class next-btn
+const nextStepBtn = document.querySelector(".next-btn");
+if (verifyBtn && inviteInput && nextStepBtn) {
+  verifyBtn.addEventListener("click", function () {
+    if (inviteInput.value.trim().length > 0) {
+      formFields.forEach((f) => f && (f.disabled = false));
+      nextStepBtn.disabled = false;
+      nextStepBtn.style.cursor = "pointer";
+    } else {
+      alert("Please enter a valid invitation code.");
+    }
+  });
+}
+// Populate districts based on division
+const divisionSelect = document.getElementById("division");
+const districtSelect = document.getElementById("district");
+const districts = {
+  dhaka: [
+    "Dhaka",
+    "Gazipur",
+    "Kishoreganj",
+    "Manikganj",
+    "Munshiganj",
+    "Narayanganj",
+    "Narsingdi",
+    "Tangail",
+    "Faridpur",
+    "Gopalganj",
+    "Madaripur",
+    "Rajbari",
+    "Shariatpur",
+  ],
+  chattogram: [
+    "Chattogram",
+    "Cox’s Bazar",
+    "Bandarban",
+    "Brahmanbaria",
+    "Chandpur",
+    "Cumilla",
+    "Feni",
+    "Khagrachari",
+    "Lakshmipur",
+    "Noakhali",
+    "Rangamati",
+  ],
+  khulna: [
+    "Khulna",
+    "Bagerhat",
+    "Chuadanga",
+    "Jessore",
+    "Jhenaidah",
+    "Kushtia",
+    "Magura",
+    "Meherpur",
+    "Narail",
+    "Satkhira",
+  ],
+  rajshahi: [
+    "Rajshahi",
+    "Bogra",
+    "Joypurhat",
+    "Naogaon",
+    "Natore",
+    "Chapai Nawabganj",
+    "Pabna",
+    "Sirajganj",
+  ],
+  barisal: [
+    "Barisal",
+    "Barguna",
+    "Bhola",
+    "Jhalokathi",
+    "Patuakhali",
+    "Pirojpur",
+  ],
+  sylhet: ["Sylhet", "Habiganj", "Moulvibazar", "Sunamganj"],
+  rangpur: [
+    "Rangpur",
+    "Dinajpur",
+    "Gaibandha",
+    "Kurigram",
+    "Lalmonirhat",
+    "Nilphamari",
+    "Panchagarh",
+    "Thakurgaon",
+  ],
+  mymensingh: ["Mymensingh", "Jamalpur", "Netrokona", "Sherpur"],
+};
+if (divisionSelect && districtSelect) {
+  divisionSelect.addEventListener("change", function () {
+    const val = divisionSelect.value;
+    districtSelect.innerHTML = '<option value="">Select District</option>';
+    if (districts[val]) {
+      districts[val].forEach((d) => {
+        const opt = document.createElement("option");
+        opt.value = d.toLowerCase().replace(/\s+/g, "-");
+        opt.textContent = d;
+        districtSelect.appendChild(opt);
+      });
+    }
+  });
+}
